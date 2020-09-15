@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadastroViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="648.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadastroViewController">
    <children>
       <Label layoutX="148.0" layoutY="14.0" text="CADASTRAR COLABORADOR">
          <font>
@@ -37,13 +37,14 @@
       <TextField fx:id="login" layoutX="164.0" layoutY="147.0" />
       <Label layoutX="326.0" layoutY="130.0" text="Senha:" />
       <TextField fx:id="senha" layoutX="326.0" layoutY="147.0" />
-      <TableView layoutY="224.0" prefHeight="176.0" prefWidth="600.0">
+      <TableView fx:id="tbColaborador" layoutY="224.0" onMouseClicked="#visualizarDados" prefHeight="176.0" prefWidth="648.0">
         <columns>
-          <TableColumn prefWidth="122.0" text="Nome" />
-          <TableColumn prefWidth="100.0" text="Email" />
-            <TableColumn prefWidth="117.0" text="Telefone" />
-            <TableColumn prefWidth="125.0" text="Atividade" />
-            <TableColumn prefWidth="135.0" text="Local de trabalho" />
+            <TableColumn fx:id="colId" prefWidth="49.0" text="Id" />
+          <TableColumn fx:id="colNome" prefWidth="124.0" text="Nome" />
+          <TableColumn fx:id="colEmail" prefWidth="96.0" text="Email" />
+            <TableColumn fx:id="colTelefone" prefWidth="114.0" text="Telefone" />
+            <TableColumn fx:id="colAtividade" prefWidth="104.0" text="Atividade" />
+            <TableColumn fx:id="colLocalDeTrabalho" prefWidth="159.0" text="Local de trabalho" />
         </columns>
       </TableView>
       <Button fx:id="btCadastrar" layoutX="488.0" layoutY="147.0" mnemonicParsing="false" onAction="#cadastrarColaborador" text="Cadastrar" />

@@ -24,7 +24,6 @@ public class LoginViewController {
 	
 	@FXML
 	private PasswordField inputSenha;
-
 	
 	@FXML
 	public void onBtEnterAction(ActionEvent event){
