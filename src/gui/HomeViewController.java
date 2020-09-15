@@ -1,11 +1,15 @@
 package gui;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import input.ColaboradorInput;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,8 +17,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class HomeViewController {
-	
+public class HomeViewController implements Initializable{
+		
 	@FXML
 	private Button btCadastrar;
 	
@@ -29,6 +33,8 @@ public class HomeViewController {
 	
 	@FXML
 	private Label localTrabalho;
+	
+	ColaboradorInput colaborador;
 	
 	@FXML
 	public void onBtCadastrarAction(ActionEvent event){
@@ -49,4 +55,23 @@ public class HomeViewController {
 	public void onBtSairAction(){
 		Platform.exit();
 	}
+	
+	public void carregarInformacoes(String nome,String atividade, String localTrabalho){
+		try{
+			this.nomeColaborador.setText(nome);
+			this.atividade.setText(atividade);
+			this.localTrabalho.setText(localTrabalho);
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@SuppressWarnings("static-access")
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		LoginViewController login = new LoginViewController();
+		this.carregarInformacoes(login.retornaColaborador(), login.retornaAtividade(), login.retornaLocal());
+	}
+
+	
 }
