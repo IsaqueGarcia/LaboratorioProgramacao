@@ -25,6 +25,12 @@ public class HomeViewController implements Initializable{
 	@FXML
 	private Button btSair;
 	
+	@FXML 
+	private Button btCadastrarPrestador;
+	
+	@FXML
+	private Button btCadastrarMorador;
+	
 	@FXML
 	private Label nomeColaborador;
 	
@@ -44,7 +50,34 @@ public class HomeViewController implements Initializable{
 			Stage stage = new Stage();
 			stage.setScene(scene);
 			stage.show();
-			((Node)(event.getSource())).getScene().getWindow().hide();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	@FXML
+	public void onBtCadastrarPrestador(ActionEvent event){
+        try {
+			Parent parent = FXMLLoader.load(getClass().getResource("CadastroPrestador.fxml"));
+			Scene scene = new Scene(parent);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	@FXML
+	public void onBtCadastrarMoradores(ActionEvent event){
+        try {
+			Parent parent = FXMLLoader.load(getClass().getResource("Moradores.fxml"));
+			Scene scene = new Scene(parent);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
         }
         catch (IOException e) {
             e.printStackTrace();

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MoradoresViewController">
+   <children>
+      <Pane layoutX="-6.0" prefHeight="433.0" prefWidth="928.0">
+         <children>
+            <ImageView fx:id="foto" fitHeight="100.0" fitWidth="100.0" layoutX="23.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/lbUsuario.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="332.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Moradores">
+               <font>
+                  <Font name="Lucida Console" size="24.0" />
+               </font>
+            </Text>
+            <TextField fx:id="unidadeMorador" layoutX="133.0" layoutY="76.0" prefHeight="25.0" prefWidth="193.0" />
+            <Label layoutX="133.0" layoutY="59.0" text="Unidade - Nome do morador">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="situacao" layoutX="345.0" layoutY="76.0" prefWidth="150.0" />
+            <Label layoutX="345.0" layoutY="59.0" text="Situação">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="telefone" layoutX="503.0" layoutY="76.0" prefHeight="25.0" prefWidth="109.0" />
+            <Label layoutX="503.0" layoutY="59.0" text="Telefone">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="email" layoutX="623.0" layoutY="76.0" prefHeight="25.0" prefWidth="199.0" />
+            <Label layoutX="623.0" layoutY="59.0" text="Email">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="correspondecias" layoutX="133.0" layoutY="134.0" prefHeight="25.0" prefWidth="116.0" />
+            <ComboBox fx:id="interfone" layoutX="264.0" layoutY="134.0" prefHeight="25.0" prefWidth="65.0" />
+            <Label layoutX="133.0" layoutY="120.0" text="Correspondências">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="264.0" layoutY="120.0" text="Interfone">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="vaga" layoutX="341.0" layoutY="134.0" prefHeight="25.0" prefWidth="65.0" />
+            <Label layoutX="341.0" layoutY="120.0" text="Vaga">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="localizacao" layoutX="420.0" layoutY="134.0" prefHeight="25.0" prefWidth="109.0" />
+            <Label layoutX="422.0" layoutY="120.0" text="Localização">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="senha" layoutX="541.0" layoutY="134.0" prefHeight="25.0" prefWidth="109.0" />
+            <Label layoutX="541.0" layoutY="120.0" text="Senha">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="btSalvar" layoutX="659.0" layoutY="134.0" mnemonicParsing="false" onAction="#cadastrarMorador" prefHeight="25.0" prefWidth="80.0" text="Salvar" />
+            <Button fx:id="btNovo" layoutX="742.0" layoutY="134.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="25.0" prefWidth="80.0" text="Novo" />
+            <TableView fx:id="tabela" layoutX="7.0" layoutY="217.0" onMouseClicked="#visualizarDados" prefHeight="215.0" prefWidth="914.0">
+              <columns>
+                <TableColumn fx:id="tbUnidadeMorador" prefWidth="215.0" text="Unidade - Morador" />
+                <TableColumn fx:id="tbSituacao" minWidth="5.0" prefWidth="142.0" text="Situação" />
+                  <TableColumn fx:id="tbContato" prefWidth="139.0" text="Contato" />
+                  <TableColumn fx:id="tbEmail" prefWidth="122.0" text="Email" />
+                  <TableColumn fx:id="tbCorreios" prefWidth="76.0" text="Correios" />
+                  <TableColumn fx:id="tbInterfone" prefWidth="85.0" text="Interfone" />
+                  <TableColumn fx:id="tbVagas" prefWidth="75.0" text="Vagas" />
+                  <TableColumn fx:id="tbId" prefWidth="62.0" text="ID" />
+              </columns>
+            </TableView>
+            <Button fx:id="btSelecionarFoto" layoutX="24.0" layoutY="169.0" mnemonicParsing="false" onAction="#selecionaArquivo" text="Selecionar Foto" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
