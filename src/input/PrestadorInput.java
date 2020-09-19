@@ -15,7 +15,7 @@ public class PrestadorInput {
 	private String atividade;
 	private String usuario;
 	private String senha;
-	private Image img;
+	private String img;
 	private Timestamp dataHora;
 	
 	
@@ -24,7 +24,7 @@ public class PrestadorInput {
 	}
 
 	public PrestadorInput(Integer id, String nomeCompleto, String email, String postoTrabalho, String atividade,
-			String usuario, String senha, Image img, Timestamp dataHora) {
+			String usuario, String senha, String img, Timestamp dataHora) {
 		super();
 		this.id = id;
 		this.nomeCompleto = nomeCompleto;
@@ -80,10 +80,10 @@ public class PrestadorInput {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public Image getImg() {
+	public String getImg() {
 		return img;
 	}
-	public void setImg(Image img) {
+	public void setImg(String img) {
 		this.img = img;
 	}
 	public Timestamp getDataHora() {

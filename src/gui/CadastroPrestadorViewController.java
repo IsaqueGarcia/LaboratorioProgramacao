@@ -87,7 +87,7 @@ public class CadastroPrestadorViewController implements Initializable {
 					atividade.getValue(),
 					login.getText(),
 					senha.getText(),
-					foto.getImage(),
+					pathImage,
 					new Timestamp(System.currentTimeMillis()));
 			
 			r.InserirPrestador(input);

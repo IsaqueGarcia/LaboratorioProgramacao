@@ -37,7 +37,7 @@ public class PrestadorRepository {
 				stmt.setTimestamp(9,null);
 				
 				//Inserindo foto
-				FileInputStream foto = new FileInputStream(input.getImg().toString());
+				FileInputStream foto = new FileInputStream(input.getImg());
 				stmt.setBlob(7, foto);
 				
 				stmt.executeUpdate();
