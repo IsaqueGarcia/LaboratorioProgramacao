@@ -225,7 +225,11 @@ public class MoradoresViewController implements Initializable {
 			telefone.setText(morador.getTelefone());
 			senha.setText(morador.getSenha());
 			vaga.setText(morador.getVaga());
-			
+			situacao.setValue(morador.getSituacao());
+			correspondecias.setValue(morador.getCorrespondencia());
+			interfone.setValue(morador.getInterfone());
+			localizacao.setValue(morador.getLocalizacao());
+			foto.setImage(morador.getImgBD());
 		}
 	}
 }

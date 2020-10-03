@@ -2,6 +2,8 @@ package input;
 
 import java.sql.Timestamp;
 
+import javafx.scene.image.Image;
+
 public class MoradorInput {
 
 	private Integer id;
@@ -16,6 +18,7 @@ public class MoradorInput {
 	private String senha;
 	private String foto;
 	private Timestamp data;
+	private Image imgBD;
 	
 	public MoradorInput(){
 		
@@ -204,6 +207,18 @@ public class MoradorInput {
 	 */
 	public void setData(Timestamp data) {
 		this.data = data;
+	}
+
+
+
+	public Image getImgBD() {
+		return imgBD;
+	}
+
+
+
+	public void setImgBD(Image imgBD) {
+		this.imgBD = imgBD;
 	}
 	
 	

@@ -171,6 +171,9 @@ public class CadastroViewController implements Initializable {
 			telefone.setText(colaborador.getTelefone());
 			login.setText(colaborador.getUsuario());
 			senha.setText(colaborador.getSenha());
+			atividade.setValue(colaborador.getAtividade());
+			localTrabalho.setValue(colaborador.getPostoTrabalho());
+			foto.setImage(colaborador.getImgBD());
 		}
 	}
 	

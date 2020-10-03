@@ -2,6 +2,8 @@ package input;
 
 import java.sql.Timestamp;
 
+import javafx.scene.image.Image;
+
 public class ColaboradorInput {
 
 	private Integer id;
@@ -14,6 +16,7 @@ public class ColaboradorInput {
 	private String senha;
 	private String img;
 	private Timestamp dataHora;
+	private Image imgBD;
 	
 	
 	public ColaboradorInput() {
@@ -156,7 +159,19 @@ public class ColaboradorInput {
 	public void setDataHora(Timestamp dataHora) {
 		this.dataHora = dataHora;
 	}
-	
+
+
+
+	public Image getImgBD() {
+		return imgBD;
+	}
+
+
+
+	public void setImgBD(Image imgBD) {
+		this.imgBD = imgBD;
+	}
+
 	
 	
 }

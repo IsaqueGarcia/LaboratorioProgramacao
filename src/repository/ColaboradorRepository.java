@@ -1,15 +1,22 @@
 package repository;
 
+import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
+
 import input.ColaboradorInput;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
 
 
 
@@ -105,6 +112,14 @@ public class ColaboradorRepository {
 				colaborador.setPostoTrabalho(stmt.getResultSet().getString("PostoTrabalho"));
 				colaborador.setUsuario(stmt.getResultSet().getString("Usuario"));
 				colaborador.setSenha(stmt.getResultSet().getString("Senha"));
+				
+				//Convertendo img de blob para imageView	
+				Blob imgBlob = stmt.getResultSet().getBlob("img");
+				InputStream blobToImg = imgBlob.getBinaryStream();
+				BufferedImage imgBuffered = ImageIO.read(blobToImg);
+				Image image = SwingFXUtils.toFXImage(imgBuffered, null);
+				colaborador.setImgBD(image);
+				
 			}
 			
 		}catch(Exception e) {

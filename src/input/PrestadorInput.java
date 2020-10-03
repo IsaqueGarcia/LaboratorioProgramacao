@@ -17,6 +17,7 @@ public class PrestadorInput {
 	private String senha;
 	private String img;
 	private Timestamp dataHora;
+	private Image imgBD;
 	
 	
 	public PrestadorInput() {
@@ -91,6 +92,14 @@ public class PrestadorInput {
 	}
 	public void setDataHora(Timestamp dataHora) {
 		this.dataHora = dataHora;
+	}
+
+	public Image getImgBD() {
+		return imgBD;
+	}
+
+	public void setImgBD(Image imgBD) {
+		this.imgBD = imgBD;
 	}
 	
 	

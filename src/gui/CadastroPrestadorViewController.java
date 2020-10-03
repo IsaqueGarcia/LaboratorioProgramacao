@@ -174,6 +174,9 @@ public class CadastroPrestadorViewController implements Initializable {
 			email.setText(prestador.getEmail());
 			login.setText(prestador.getUsuario());
 			senha.setText(prestador.getSenha());
+			atividade.setValue(prestador.getAtividade());
+			postoTrabalho.setValue(prestador.getPostoTrabalho());
+			foto.setImage(prestador.getImgBD());
 		}
 	}
 
