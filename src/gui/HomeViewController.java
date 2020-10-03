@@ -32,6 +32,9 @@ public class HomeViewController implements Initializable{
 	private Button btCadastrarMorador;
 	
 	@FXML
+	private Button btChaves;
+	
+	@FXML
 	private Label nomeColaborador;
 	
 	@FXML
@@ -74,6 +77,20 @@ public class HomeViewController implements Initializable{
 	public void onBtCadastrarMoradores(ActionEvent event){
         try {
 			Parent parent = FXMLLoader.load(getClass().getResource("Moradores.fxml"));
+			Scene scene = new Scene(parent);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	@FXML
+	public void onBtChave(ActionEvent event){
+        try {
+			Parent parent = FXMLLoader.load(getClass().getResource("Chaves.fxml"));
 			Scene scene = new Scene(parent);
 			Stage stage = new Stage();
 			stage.setScene(scene);
