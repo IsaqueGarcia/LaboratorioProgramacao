@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="648.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadastroFuncionarioViewController">
+   <children>
+      <Label layoutX="148.0" layoutY="14.0" text="CADASTRAR FUNCIONARIOS">
+         <font>
+            <Font name="Lucida Console" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="foto" fitHeight="138.0" fitWidth="130.0" layoutX="18.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../GIT/PORTAL_ADMINISTRATIVO_APLICA-O/src/Componentes/imagens/usuario.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="nomeCompleto" layoutX="31.0" layoutY="62.0" />
+      <Label layoutX="31.0" layoutY="46.0" text="Nome completo:" />
+      <TextField fx:id="email" layoutX="202.0" layoutY="62.0" prefHeight="25.0" prefWidth="222.0" />
+      <Label layoutX="202.0" layoutY="46.0" text="Email:" />
+      <TextField fx:id="telefone" layoutX="447.0" layoutY="62.0" prefHeight="25.0" prefWidth="175.0" />
+      <Label layoutX="447.0" layoutY="46.0" text="Telefone:" />
+      <ComboBox fx:id="tipoDeConta" layoutX="505.0" layoutY="115.0" onAction="#carregaAtividades" prefHeight="25.0" prefWidth="113.0" />
+      <ComboBox fx:id="diretoria" layoutX="366.0" layoutY="115.0" prefHeight="25.0" prefWidth="122.0" />
+      <Label layoutX="508.0" layoutY="97.0" text="Tipo de conta:" />
+      <Label layoutX="366.0" layoutY="97.0" text="Diretoria:" />
+      <Label layoutX="31.0" layoutY="97.0" text="Login:" />
+      <TextField fx:id="login" layoutX="31.0" layoutY="114.0" />
+      <Label layoutX="202.0" layoutY="97.0" text="Senha:" />
+      <TextField fx:id="senha" layoutX="202.0" layoutY="114.0" />
+      <TableView fx:id="tbColaborador" layoutY="224.0" onMouseClicked="#visualizarDados" prefHeight="176.0" prefWidth="648.0">
+        <columns>
+            <TableColumn fx:id="colId" prefWidth="49.0" text="Id" />
+          <TableColumn fx:id="colNome" prefWidth="124.0" text="Nome" />
+          <TableColumn fx:id="colEmail" prefWidth="96.0" text="Email" />
+            <TableColumn fx:id="colTelefone" prefWidth="114.0" text="Telefone" />
+            <TableColumn fx:id="colAtividade" prefWidth="104.0" text="Diretoria" />
+            <TableColumn fx:id="colLocalDeTrabalho" prefWidth="159.0" text="Tipo de conta" />
+        </columns>
+      </TableView>
+      <Button fx:id="btCadastrar" layoutX="511.0" layoutY="157.0" mnemonicParsing="false" onAction="#cadastrarColaborador" text="Salvar" />
+      <Button layoutX="568.0" layoutY="157.0" mnemonicParsing="false" onAction="#selecionaArquivo" text="Limpar" />
+   </children>
+</Pane>
