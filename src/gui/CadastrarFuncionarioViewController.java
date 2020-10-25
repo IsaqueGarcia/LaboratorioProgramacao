@@ -63,7 +63,6 @@ public class CadastrarFuncionarioViewController implements Initializable{
 	@FXML
 	private TableColumn colDiretoria;
 	
-	
 	FuncionarioRepository r = new FuncionarioRepository();
 
 	public void cadastrarFuncionario(ActionEvent event) {
@@ -98,7 +97,7 @@ public class CadastrarFuncionarioViewController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		funcionarioOutraTela();
 		carregaDiretoria();
 		carregaTipoConta();
 		carregaTabelaFuncionarios();
@@ -171,6 +170,19 @@ public class CadastrarFuncionarioViewController implements Initializable{
 			login.setText(funcionario.getLogin());
 			senha.setText(funcionario.getSenha());
 			id.setText(funcionario.getId().toString());
+		}
+	}
+	
+	public void funcionarioOutraTela() {
+		if(BuscarUsuarioViewController.funcionarioInput != null) {
+			nomeCompleto.setText(BuscarUsuarioViewController.getNomeCompleto());
+			email.setText(BuscarUsuarioViewController.getEmail());
+			telefone.setText(BuscarUsuarioViewController.getTelefone());
+			login.setText(BuscarUsuarioViewController.getLogin());
+			senha.setText(BuscarUsuarioViewController.getSenha());
+			id.setText(BuscarUsuarioViewController.getFuncionarioId().toString());
+			tipoDeconta.setValue(BuscarUsuarioViewController.getTipoConta());
+			diretoria.setValue(BuscarUsuarioViewController.getDiretoria());
 		}
 	}
 

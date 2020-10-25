@@ -9,11 +9,14 @@ import java.util.Map;
 import input.FuncionarioInput;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 
 public class FuncionarioRepository {
 
 	public ObservableList<Map> getFuncionarios(){
 		ObservableList<Map> funcionarios = FXCollections.observableArrayList();
+		Button btn = new Button();
+		btn.setText("DELETAR");
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn;
@@ -26,7 +29,8 @@ public class FuncionarioRepository {
 			stmt.executeQuery();
 			while(stmt.getResultSet().next()) {
 				Map<String, String> funcionario = new HashMap<String, String>();
-				funcionario.put("col_nome", String.valueOf(stmt.getResultSet().getString("Nome_Completo")));
+				funcionario.put("col_id", String.valueOf(stmt.getResultSet().getInt("Id")));
+				funcionario.put("col_nome", stmt.getResultSet().getString("Nome_Completo"));
 				funcionario.put("col_telefone", stmt.getResultSet().getString("Telefone"));
 				funcionario.put("col_email", stmt.getResultSet().getString("Email"));
 				funcionario.put("col_tipoConta", stmt.getResultSet().getString("Tipo_Conta"));

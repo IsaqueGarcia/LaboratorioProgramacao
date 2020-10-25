@@ -1,5 +1,6 @@
 package gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,14 +9,21 @@ import java.util.ResourceBundle;
 import input.FuncionarioInput;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.MapValueFactory;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 import repository.FuncionarioRepository;
 
 public class BuscarUsuarioViewController implements Initializable{
@@ -26,6 +34,8 @@ public class BuscarUsuarioViewController implements Initializable{
 	private Button btnPesquisar;
 	@FXML
 	private TableView<Map> tbFuncionarios;
+	@FXML
+	private TableColumn colId;
 	@FXML
 	private TableColumn colNome;
 	@FXML
@@ -41,6 +51,8 @@ public class BuscarUsuarioViewController implements Initializable{
 	
 	private ObservableList<Map>  listaFuncionarios;
 	
+	static FuncionarioInput funcionarioInput = null;
+	
 	FuncionarioRepository r = new FuncionarioRepository();
 	
 	@Override
@@ -51,14 +63,14 @@ public class BuscarUsuarioViewController implements Initializable{
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void carregarTabelaFuncionarios() {
-		Button btn = new Button("Deletar");
 		
+		colId.setCellValueFactory(new MapValueFactory("col_id"));
 		colNome.setCellValueFactory(new MapValueFactory("col_nome"));
 		colTelefone.setCellValueFactory(new MapValueFactory("col_telefone"));
 		colEmail.setCellValueFactory(new MapValueFactory("col_email"));
 		colTipoConta.setCellValueFactory(new MapValueFactory("col_tipoConta"));
 		colDiretoria.setCellValueFactory(new MapValueFactory("col_diretoria"));
-		//colBtn.setCellValueFactory();
+		
 		
 		tbFuncionarios.setItems(r.getFuncionarios());
 		listaFuncionarios = r.getFuncionarios();
@@ -72,6 +84,7 @@ public class BuscarUsuarioViewController implements Initializable{
 			for(Map map : listaFuncionarios) {
 				if(map.get("col_nome").equals(txtPesquisar.getText().toUpperCase())) {
 					Map<String, String> funcionario = new HashMap<String, String>();
+					funcionario.put("col_id", map.get("col_id").toString());
 					funcionario.put("col_nome", map.get("col_nome").toString());
 					funcionario.put("col_telefone", map.get("col_telefone").toString());
 					funcionario.put("col_email", map.get("col_email").toString());
@@ -85,6 +98,27 @@ public class BuscarUsuarioViewController implements Initializable{
 		}
 	}
 	
+	@FXML
+	public void chamarAtualizacaoDelecao(MouseEvent event) {
+		if(event.getClickCount() == 2) {
+			funcionarioInput = new FuncionarioInput();
+			funcionarioInput = r.getFuncionarioPorId(Integer.parseInt(tbFuncionarios.getSelectionModel().getSelectedItem().get("col_id").toString()));
+			
+			  try {			  	
+					Parent parent = FXMLLoader.load(getClass().getResource("CadastroFuncionario.fxml"));
+					Scene scene = new Scene(parent);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.show();
+									
+		        }
+		        catch (IOException e) {
+		            e.printStackTrace();
+		        }
+			
+		}
+	}
+		
 
 	public TextField getTxtPesquisar() {
 		return txtPesquisar;
@@ -176,6 +210,29 @@ public class BuscarUsuarioViewController implements Initializable{
 	}
 	
 	
-	
+	public static String getNomeCompleto() {
+		return funcionarioInput.getNomeCompleto();
+	}	
+	public static Integer getFuncionarioId() {
+		return funcionarioInput.getId();
+	}
+	public static String getEmail() {
+		return funcionarioInput.getEmail();
+	}
+	public static String getTipoConta() {
+		return funcionarioInput.getTipoDeConta();
+	}
+	public static String getTelefone() {
+		return funcionarioInput.getTelefone();
+	}
+	public static String getDiretoria() {
+		return funcionarioInput.getDiretoria();
+	}
+	public static String getLogin() {
+		return funcionarioInput.getLogin();
+	}
+	public static String getSenha() {
+		return funcionarioInput.getSenha();
+	}
 	
 }

@@ -8,23 +8,23 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.BuscarUsuarioViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.BuscarUsuarioViewController">
    <children>
-      <Label layoutX="304.0" layoutY="14.0" text="Buscar Funcionários">
+      <Label layoutX="359.0" layoutY="14.0" text="Buscar Funcionários">
          <font>
             <Font name="Lucida Console" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPesquisar" layoutX="188.0" layoutY="52.0" prefHeight="25.0" prefWidth="424.0" />
-      <Button fx:id="btnPesquisar" layoutX="624.0" layoutY="52.0" mnemonicParsing="false" onAction="#buscarFuncionario" text="Pesquisar" />
-      <TableView fx:id="tbFuncionarios" layoutX="-4.0" layoutY="135.0" prefHeight="277.0" prefWidth="821.0">
+      <TextField fx:id="txtPesquisar" layoutX="250.0" layoutY="52.0" prefHeight="25.0" prefWidth="424.0" />
+      <Button fx:id="btnPesquisar" layoutX="688.0" layoutY="52.0" mnemonicParsing="false" onAction="#buscarFuncionario" text="Pesquisar" />
+      <TableView fx:id="tbFuncionarios" layoutX="-4.0" layoutY="135.0" onMouseClicked="#chamarAtualizacaoDelecao" prefHeight="277.0" prefWidth="931.0">
         <columns>
+            <TableColumn fx:id="colId" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="colNome" prefWidth="187.0" text="Nome Completo" />
-          <TableColumn fx:id="colTelefone" prefWidth="137.0" text="Telefone" />
-            <TableColumn fx:id="colEmail" prefWidth="166.0" text="Email" />
-            <TableColumn fx:id="colTipoConta" prefWidth="122.0" text="Tipo de Conta" />
-            <TableColumn fx:id="colDiretoria" prefWidth="109.0" text="Diretoria" />
-            <TableColumn fx:id="colBtn" prefWidth="100.0" />
+          <TableColumn fx:id="colTelefone" prefWidth="152.0" text="Telefone" />
+            <TableColumn fx:id="colEmail" prefWidth="190.0" text="Email" />
+            <TableColumn fx:id="colTipoConta" prefWidth="128.0" text="Tipo de Conta" />
+            <TableColumn fx:id="colDiretoria" prefWidth="195.0" text="Diretoria" />
         </columns>
       </TableView>
    </children>

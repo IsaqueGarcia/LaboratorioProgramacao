@@ -57,6 +57,7 @@ public class HomeViewController implements Initializable{
 			Stage stage = new Stage();
 			stage.setScene(scene);
 			stage.show();
+			
         }
         catch (IOException e) {
             e.printStackTrace();
