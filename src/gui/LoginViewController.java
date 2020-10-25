@@ -37,11 +37,11 @@ public class LoginViewController {
 	public void onBtEnterAction(ActionEvent event){
         try {
         	
-        	 result = repo.validarLogin(inputLogin.getText(), inputSenha.getText());
+        	 result = repo.validarLogin(inputLogin.getText(), CadastrarFuncionarioViewController.criptografar(inputSenha.getText()));
         	 
         	if(!StringUtils.isNullOrEmpty(inputLogin.getText()) && !StringUtils.isNullOrEmpty(inputSenha.getText()) ){
         		
-            	if(result.getLogin().equals(inputLogin.getText()) && result.getSenha().equals(inputSenha.getText())){
+            	if(result.getLogin().equals(inputLogin.getText()) && result.getSenha().equals(CadastrarFuncionarioViewController.criptografar(inputSenha.getText()))){
         			Parent parent = FXMLLoader.load(getClass().getResource("Home.fxml"));
         			Scene scene = new Scene(parent);
         			Stage stage = new Stage();

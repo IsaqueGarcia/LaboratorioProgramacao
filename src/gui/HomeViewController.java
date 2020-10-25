@@ -52,7 +52,7 @@ public class HomeViewController implements Initializable{
 	@FXML
 	public void onBtCadastrarAction(ActionEvent event){
         try {
-			Parent parent = FXMLLoader.load(getClass().getResource("Cadastro.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("CadastroFuncionario.fxml"));
 			Scene scene = new Scene(parent);
 			Stage stage = new Stage();
 			stage.setScene(scene);
