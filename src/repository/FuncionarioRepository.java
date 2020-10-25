@@ -182,5 +182,32 @@ public class FuncionarioRepository {
 		System.out.println("Funcionario atualizado!");	
 	}
 	
+	public void deletarFuncionarioPeloId(Integer id){
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn;
+			conn = DriverManager.getConnection("jdbc:mysql://lbsumare.mysql.uhserver.com/lbsumare",
+					"aluno2020",
+					"@Aluno2020");
+			
+			String query = "DELETE FROM Funcionario WHERE Id = ?";
+			
+			try(PreparedStatement stmt = conn.prepareStatement(query)){
+				stmt.setInt(1, id);
+				
+				stmt.executeUpdate();
+				conn.close();
+			}catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+			
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		System.out.println("Funcionario deletado!");	
+	}
+	
 	
 }

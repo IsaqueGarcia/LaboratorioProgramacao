@@ -42,6 +42,8 @@ public class CadastrarFuncionarioViewController implements Initializable{
 	@FXML
 	private Button btLimpar;
 	@FXML
+	private Button btDeletar;
+	@FXML
 	private ComboBox<String> diretoria;
 	@FXML
 	private ComboBox<String> tipoDeconta
@@ -85,6 +87,27 @@ public class CadastrarFuncionarioViewController implements Initializable{
 			System.out.println(e.getMessage());
 		}
 
+	}
+	
+	public void DeletarFuncionario(ActionEvent event){
+		try{
+			if(!id.getText().isEmpty()){
+				r.deletarFuncionarioPeloId(Integer.parseInt(id.getText()));
+				
+				nomeCompleto.setText("");
+				email.setText("");
+				telefone.setText("");
+				login.setText("");
+				senha.setText("");
+				id.setText("");
+				
+				carregaTabelaFuncionarios();
+			}
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public void limparCampos(ActionEvent event){
@@ -170,6 +193,8 @@ public class CadastrarFuncionarioViewController implements Initializable{
 			login.setText(funcionario.getLogin());
 			senha.setText(funcionario.getSenha());
 			id.setText(funcionario.getId().toString());
+			tipoDeconta.setValue(funcionario.getTipoDeConta());
+			diretoria.setValue(funcionario.getDiretoria());
 		}
 	}
 	
