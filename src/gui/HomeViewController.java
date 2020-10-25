@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import input.ColaboradorInput;
+import input.FuncionarioInput;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,21 +30,24 @@ public class HomeViewController implements Initializable{
 	private Button btCadastrarPrestador;
 	
 	@FXML
-	private Button btCadastrarMorador;
+	private Button btProtocolo;
+	
+	@FXML
+	private Button btBuscarFuncionario;
 	
 	@FXML
 	private Button btChaves;
 	
 	@FXML
-	private Label nomeColaborador;
+	private Label nomeFuncionario;
 	
 	@FXML
-	private Label atividade;
+	private Label tipoConta;
 	
 	@FXML
-	private Label localTrabalho;
+	private Label diretoria;
 	
-	ColaboradorInput colaborador;
+	FuncionarioInput funcionario;
 	
 	@FXML
 	public void onBtCadastrarAction(ActionEvent event){
@@ -74,9 +78,9 @@ public class HomeViewController implements Initializable{
 	}
 	
 	@FXML
-	public void onBtCadastrarMoradores(ActionEvent event){
+	public void onBtBuscarFuncionario(ActionEvent event){
         try {
-			Parent parent = FXMLLoader.load(getClass().getResource("Moradores.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("BuscarUsuario.fxml"));
 			Scene scene = new Scene(parent);
 			Stage stage = new Stage();
 			stage.setScene(scene);
@@ -102,15 +106,29 @@ public class HomeViewController implements Initializable{
 	}
 	
 	@FXML
+	public void onBtProtocolo(ActionEvent event){
+        try {
+			Parent parent = FXMLLoader.load(getClass().getResource("Protocolo.fxml"));
+			Scene scene = new Scene(parent);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	@FXML
 	public void onBtSairAction(){
 		Platform.exit();
 	}
 	
-	public void carregarInformacoes(String nome,String atividade, String localTrabalho){
+	public void carregarInformacoes(String nome,String tipoConta, String diretoria){
 		try{
-			this.nomeColaborador.setText(nome);
-			this.atividade.setText(atividade);
-			this.localTrabalho.setText(localTrabalho);
+			this.nomeFuncionario.setText("Nome do funcionário: " + nome);
+			this.tipoConta.setText("Tipo de conta: " + tipoConta);
+			this.diretoria.setText("Diretoria: " + diretoria);
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
@@ -120,7 +138,7 @@ public class HomeViewController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		LoginViewController login = new LoginViewController();
-		this.carregarInformacoes(login.retornaColaborador(), login.retornaAtividade(), login.retornaLocal());
+		this.carregarInformacoes(login.retornarFuncionario(), login.retornarTipoConta(), login.retornarDiretoria());
 	}
 
 	

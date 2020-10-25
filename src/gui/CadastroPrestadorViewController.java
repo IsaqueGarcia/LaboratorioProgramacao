@@ -131,6 +131,7 @@ public class CadastroPrestadorViewController implements Initializable {
 
 	}
 	
+	//função para selecioanr a foto
 	public void selecionaArquivo(ActionEvent event) {
 		FileChooser fc = new FileChooser();
 		arquivoSelecionado = fc.showOpenDialog(null);

@@ -50,9 +50,9 @@ public class CadastrarFuncionarioViewController {
 	public void cadastrarColaborador(ActionEvent event) {
 		try {
 
-			FuncionarioInput input = new FuncionarioInput(null,nomeCompleto.getText(), email.getText(), telefone.getText(),
-					diretoria.getValue(),tipoDeconta.getValue(), login.getText(), senha.getText());
-			r.InserirFuncionario(input);
+//			FuncionarioInput input = new FuncionarioInput(null,nomeCompleto.getText(), email.getText(), telefone.getText(),
+//					diretoria.getValue(),tipoDeconta.getValue(), login.getText(), senha.getText());
+//			r.InserirFuncionario(input);
 			
 			nomeCompleto.setText("");
 			email.setText("");

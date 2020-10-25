@@ -1,5 +1,7 @@
 package input;
 
+import javafx.scene.control.Button;
+
 public class FuncionarioInput {
 
 
@@ -11,6 +13,7 @@ public class FuncionarioInput {
 	private String tipoDeConta;
 	private String login;
 	private String senha;
+
 	
 	public FuncionarioInput() {
 		
@@ -92,8 +95,6 @@ public class FuncionarioInput {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
 	
 	
 	

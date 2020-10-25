@@ -4,33 +4,32 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Timestamp;
 
 import input.ColaboradorInput;
+import input.FuncionarioInput;
 
 
 
 public class LoginRepository {
 
 	
-	public ColaboradorInput validarLogin(String usuario,String senha){
-		ColaboradorInput colaborador = null;
-		String id = "";
+	public FuncionarioInput validarLogin(String usuario,String senha){
+		FuncionarioInput funcionario = null;
+		Integer id = null;
 		String nomeCompleto = "";
 		String email = "";
 		String telefone = "";
-		String postoTrabalho = "";
-		String atividade = "";
-		String imgPath = "";
 		String resultadoLogin = ""; 
 		String resultadoSenha = "";
-		String dataHora = "";
+		String tipoConta = "";
+		String diretoria= "";
+		
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn;
 			conn = DriverManager.getConnection("jdbc:mysql://lbsumare.mysql.uhserver.com/lbsumare", "aluno2020", "@Aluno2020");
 			
-			String query = "SELECT * FROM Colaborador where Usuario = ? AND Senha = ?";
+			String query = "SELECT * FROM Funcionario where Login = ? AND Senha = ?";
 			
 			
 			PreparedStatement ps;
@@ -41,25 +40,23 @@ public class LoginRepository {
 			rs = ps.executeQuery();
 			
 			while(rs.next()){
-				 id = rs.getString("id");
-				 nomeCompleto = rs.getString("NomeCompleto");
+				 id = Integer.parseInt(rs.getString("Id"));
+				 nomeCompleto = rs.getString("Nome_Completo");
 				 email = rs.getString("Email");
 				 telefone = rs.getString("Telefone");
-				 postoTrabalho = rs.getString("PostoTrabalho");
-				 atividade = rs.getString("Atividade");
-				 imgPath = rs.getString("img");
-				 resultadoLogin = rs.getString("Usuario");
+				 resultadoLogin = rs.getString("Login");
 				 resultadoSenha = rs.getString("Senha");
-				 dataHora = rs.getString("DataHora");
+				 tipoConta = rs.getString("Tipo_Conta");
+				 diretoria = rs.getString("Diretoria");
 			}
 			
-			colaborador = new ColaboradorInput(nomeCompleto, email, telefone, postoTrabalho, atividade, resultadoLogin, resultadoSenha, imgPath, new Timestamp(System.currentTimeMillis()));
+			funcionario = new FuncionarioInput(id, nomeCompleto, email, telefone, diretoria, tipoConta, resultadoLogin, resultadoSenha);
 			
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 		
-		return colaborador;
+		return funcionario;
 	}
 	
 }

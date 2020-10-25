@@ -3,6 +3,7 @@ package gui;
 import com.mysql.jdbc.StringUtils;
 
 import input.ColaboradorInput;
+import input.FuncionarioInput;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +31,7 @@ public class LoginViewController {
 	
 	LoginRepository repo = new LoginRepository();
 	
-	static ColaboradorInput result = new ColaboradorInput();
+	static FuncionarioInput result = new FuncionarioInput();
 
 	@FXML
 	public void onBtEnterAction(ActionEvent event){
@@ -40,7 +41,7 @@ public class LoginViewController {
         	 
         	if(!StringUtils.isNullOrEmpty(inputLogin.getText()) && !StringUtils.isNullOrEmpty(inputSenha.getText()) ){
         		
-            	if(result.getUsuario().equals(inputLogin.getText()) && result.getSenha().equals(inputSenha.getText())){
+            	if(result.getLogin().equals(inputLogin.getText()) && result.getSenha().equals(inputSenha.getText())){
         			Parent parent = FXMLLoader.load(getClass().getResource("Home.fxml"));
         			Scene scene = new Scene(parent);
         			Stage stage = new Stage();
@@ -59,17 +60,16 @@ public class LoginViewController {
         }
 	}
 	
-	public static String retornaColaborador(){
+	public static String retornarFuncionario(){
 		return result.getNomeCompleto();
 	}
 	
-	public static String retornaAtividade(){
-		return result.getAtividade();
-	}
-	
-	public static String retornaLocal(){
-		return result.getPostoTrabalho();
+	public static String retornarTipoConta() {
+		return result.getTipoDeConta();
 	}
 
+	public static String retornarDiretoria() {
+		return result.getDiretoria();
+	}
 	
 }

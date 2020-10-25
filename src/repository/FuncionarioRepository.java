@@ -20,15 +20,15 @@ public class FuncionarioRepository {
 					"aluno2020",
 					"@Aluno2020");
 			
-			String query = "SELECT * FROM ??????";
+			String query = "SELECT * FROM Funcionario";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.executeQuery();
 			while(stmt.getResultSet().next()) {
 				Map<String, String> funcionario = new HashMap<String, String>();
-				funcionario.put("col_nome", String.valueOf(stmt.getResultSet().getInt("NomeCompleto")));
+				funcionario.put("col_nome", String.valueOf(stmt.getResultSet().getString("Nome_Completo")));
 				funcionario.put("col_telefone", stmt.getResultSet().getString("Telefone"));
 				funcionario.put("col_email", stmt.getResultSet().getString("Email"));
-				funcionario.put("col_tipoConta", stmt.getResultSet().getString("TipoConta"));
+				funcionario.put("col_tipoConta", stmt.getResultSet().getString("Tipo_Conta"));
 				funcionario.put("col_diretoria", stmt.getResultSet().getString("Diretoria"));
 				funcionarios.add(funcionario);
 			}
@@ -36,7 +36,9 @@ public class FuncionarioRepository {
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
 		return funcionarios;
 	}
+	
 	
 }

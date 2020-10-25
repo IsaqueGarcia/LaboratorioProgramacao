@@ -1,9 +1,13 @@
 package gui;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import input.FuncionarioInput;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,6 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.MapValueFactory;
+import javafx.scene.control.cell.PropertyValueFactory;
 import repository.FuncionarioRepository;
 
 public class BuscarUsuarioViewController implements Initializable{
@@ -31,6 +36,10 @@ public class BuscarUsuarioViewController implements Initializable{
 	private TableColumn colTipoConta;
 	@FXML
 	private TableColumn colDiretoria;
+	@FXML
+	private TableColumn colBtn;
+	
+	private ObservableList<Map>  listaFuncionarios;
 	
 	FuncionarioRepository r = new FuncionarioRepository();
 	
@@ -42,15 +51,40 @@ public class BuscarUsuarioViewController implements Initializable{
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void carregarTabelaFuncionarios() {
+		Button btn = new Button("Deletar");
+		
 		colNome.setCellValueFactory(new MapValueFactory("col_nome"));
 		colTelefone.setCellValueFactory(new MapValueFactory("col_telefone"));
 		colEmail.setCellValueFactory(new MapValueFactory("col_email"));
 		colTipoConta.setCellValueFactory(new MapValueFactory("col_tipoConta"));
 		colDiretoria.setCellValueFactory(new MapValueFactory("col_diretoria"));
+		//colBtn.setCellValueFactory();
 		
 		tbFuncionarios.setItems(r.getFuncionarios());
+		listaFuncionarios = r.getFuncionarios();
 	}
-
+	
+	public void buscarFuncionario() {
+		if(txtPesquisar.getText().equals("")) {
+			this.carregarTabelaFuncionarios();
+		}else {
+			ObservableList<Map> listaAposBusca = FXCollections.observableArrayList();
+			for(Map map : listaFuncionarios) {
+				if(map.get("col_nome").equals(txtPesquisar.getText().toUpperCase())) {
+					Map<String, String> funcionario = new HashMap<String, String>();
+					funcionario.put("col_nome", map.get("col_nome").toString());
+					funcionario.put("col_telefone", map.get("col_telefone").toString());
+					funcionario.put("col_email", map.get("col_email").toString());
+					funcionario.put("col_tipoConta", map.get("col_tipoConta").toString());
+					funcionario.put("col_diretoria", map.get("col_diretoria").toString());
+					listaAposBusca.add(funcionario);
+				}
+				
+			}
+			tbFuncionarios.setItems(listaAposBusca);
+		}
+	}
+	
 
 	public TextField getTxtPesquisar() {
 		return txtPesquisar;
@@ -129,6 +163,16 @@ public class BuscarUsuarioViewController implements Initializable{
 
 	public void setColDiretoria(TableColumn colDiretoria) {
 		this.colDiretoria = colDiretoria;
+	}
+
+
+	public ObservableList<Map> getListaFuncionarios() {
+		return listaFuncionarios;
+	}
+
+
+	public void setListaFuncionarios(ObservableList<Map> listaFuncionarios) {
+		this.listaFuncionarios = listaFuncionarios;
 	}
 	
 	
