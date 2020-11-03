@@ -22,19 +22,13 @@ public class HomeViewController implements Initializable{
 	private Button btCadastrar;
 	
 	@FXML
-	private Button btSair;
-	
-	@FXML 
-	private Button btCadastrarPrestador;
-	
-	@FXML
-	private Button btProtocolo;
-	
-	@FXML
 	private Button btBuscarFuncionario;
 	
 	@FXML
-	private Button btChaves;
+	private Button btSobre;
+	
+	@FXML
+	private Button btSair;
 	
 	@FXML
 	private Label nomeFuncionario;
@@ -62,19 +56,6 @@ public class HomeViewController implements Initializable{
         }
 	}
 	
-	@FXML
-	public void onBtCadastrarPrestador(ActionEvent event){
-        try {
-			Parent parent = FXMLLoader.load(getClass().getResource("CadastroPrestador.fxml"));
-			Scene scene = new Scene(parent);
-			Stage stage = new Stage();
-			stage.setScene(scene);
-			stage.show();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-	}
 	
 	@FXML
 	public void onBtBuscarFuncionario(ActionEvent event){
@@ -90,34 +71,21 @@ public class HomeViewController implements Initializable{
         }
 	}
 	
+	
 	@FXML
-	public void onBtChave(ActionEvent event){
-        try {
-			Parent parent = FXMLLoader.load(getClass().getResource("Chaves.fxml"));
+	public void onBtSobre(ActionEvent event) {
+		try {
+			Parent parent = FXMLLoader.load(getClass().getResource("Sobre.fxml"));
 			Scene scene = new Scene(parent);
 			Stage stage = new Stage();
 			stage.setScene(scene);
-			stage.show();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+			stage.show();	
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	@FXML
-	public void onBtProtocolo(ActionEvent event){
-        try {
-			Parent parent = FXMLLoader.load(getClass().getResource("Protocolo.fxml"));
-			Scene scene = new Scene(parent);
-			Stage stage = new Stage();
-			stage.setScene(scene);
-			stage.show();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-	}
-	
+
 	@FXML
 	public void onBtSairAction(){
 		Platform.exit();
