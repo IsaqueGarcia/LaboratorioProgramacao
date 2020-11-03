@@ -2,7 +2,6 @@ package gui;
 
 import com.mysql.jdbc.StringUtils;
 
-import input.ColaboradorInput;
 import input.FuncionarioInput;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +14,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import repository.LoginRepository;
+import util.Popup;
 
 
 public class LoginViewController {
@@ -48,6 +48,8 @@ public class LoginViewController {
         			stage.setScene(scene);
         			stage.show();
         			((Node)(event.getSource())).getScene().getWindow().hide();
+            	}else {
+            		Popup.infoDialog("Info", "Informações", "Usuário ou senha invalido!");
             	}
         		
         	}

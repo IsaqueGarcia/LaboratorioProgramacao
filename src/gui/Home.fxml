@@ -37,18 +37,6 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="btSair" layoutX="499.0" layoutY="168.0" minHeight="56.0" minWidth="56.0" mnemonicParsing="false" onAction="#onBtSairAction" prefHeight="63.0" prefWidth="66.0" text="Button">
-         <effect>
-            <ImageInput>
-               <source>
-                  <Image url="file:/C:/Users/PICHAU/Pictures/lbImagens/sair_64.png" />
-               </source>
-            </ImageInput>
-         </effect>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <Label fx:id="nomeFuncionario" layoutX="36.0" layoutY="166.0" text="Nome do funcionario:">
          <font>
             <Font name="Lucida Console" size="12.0" />
@@ -115,15 +103,27 @@
             <Font name="Lucida Console" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="518.0" layoutY="166.0" text="Sair" textFill="WHITE">
-         <font>
-            <Font name="Lucida Console" size="12.0" />
-         </font>
-      </Label>
       <Label layoutX="41.0" layoutY="138.0" text="Protocolo" textFill="WHITE">
          <font>
             <Font name="Lucida Console" size="14.0" />
          </font>
       </Label>
+      <Button layoutX="497.0" layoutY="164.0" minHeight="70.0" minWidth="70.0" mnemonicParsing="false">
+         <effect>
+            <ColorAdjust />
+         </effect>
+      </Button>
+      <Button fx:id="btSair" layoutX="500.0" layoutY="168.0" minHeight="56.0" minWidth="56.0" mnemonicParsing="false" onAction="#onBtSairAction" prefHeight="63.0" prefWidth="70.0" text="Button">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/C:/Users/PICHAU/Pictures/lbImagens/sair_64.png" />
+               </source>
+            </ImageInput>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </Pane>

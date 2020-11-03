@@ -10,6 +10,7 @@ import input.FuncionarioInput;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
+import util.Popup;
 
 public class FuncionarioRepository {
 
@@ -76,13 +77,15 @@ public class FuncionarioRepository {
 				conn.close();
 			}catch (Exception e) {
 				System.out.println(e.getMessage());
+				Popup.infoDialog("Info", "Informações", "Erro ao gravar!");
 			}
 			
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
+			Popup.infoDialog("Info", "Informações", "Erro ao gravar!");
 		}
 		
-		System.out.println("Funcionario gravado!");	
+		Popup.infoDialog("Info", "Informações", "Funcionario gravado com sucesso!");
 	}
 	
 	public ObservableList<Map> carregaTbFuncionarios(){
@@ -173,13 +176,15 @@ public class FuncionarioRepository {
 				conn.close();
 			}catch (Exception e) {
 				System.out.println(e.getMessage());
+				Popup.infoDialog("Info", "Informações", "Erro ao atualizar!");
 			}
 			
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
+			Popup.infoDialog("Info", "Informações", "Erro ao atualizar!");
 		}
 		
-		System.out.println("Funcionario atualizado!");	
+		Popup.infoDialog("Info", "Informações", "Funcionario atualizado com sucesso!");
 	}
 	
 	public void deletarFuncionarioPeloId(Integer id){
@@ -200,13 +205,15 @@ public class FuncionarioRepository {
 				conn.close();
 			}catch (Exception e) {
 				System.out.println(e.getMessage());
+				Popup.infoDialog("Info", "Informações", "Erro ao deletar!");
 			}
 			
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
+			Popup.infoDialog("Info", "Informações", "Erro ao deletar!");
 		}
 		
-		System.out.println("Funcionario deletado!");	
+		Popup.infoDialog("Info", "Informações", "Funcionario deletado com sucesso!");	
 	}
 	
 	
