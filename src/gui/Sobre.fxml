@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobre">
+         <font>
+            <Font name="Lucida Console" size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="18.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Integrantes:">
+         <font>
+            <Font name="Lucida Console" size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="18.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Isaque da Silva Garcia - isaqueemprego1@gmail.com" />
+      <Text layoutX="18.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jonas da Silva Garcia - jonasemprego1@gmail.com" />
+      <Text layoutX="18.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kleber Leandro Kucmus Sobreiro  -  kleber.leandro02@gmail.com" />
+      <Text layoutX="18.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Romario Anderson Romeiro Rodrigues  -  andersonromario40@gmail.com" />
+      <Text layoutX="18.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Termos de uso:">
+         <font>
+            <Font name="Lucida Console" size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="19.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Este software foi desenvolvido em java com repositório  em banco de dados e com garantia até 12/2020," wrappingWidth="562.13671875" />
+      <Text layoutX="19.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="podendo ser feita as manutenções de acordo com a Lei que Dispõe O art. 7º e 8º da Lei 9.609 " />
+      <Text layoutX="19.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="de 19 de Fevereiro de 2002." />
+      <Text layoutX="19.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos do sistema:">
+         <font>
+            <Font name="Lucida Console" size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="19.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mínimo de 3GB de memória e Processador superior ao I3" />
+   </children>
+</Pane>

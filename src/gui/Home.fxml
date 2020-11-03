@@ -30,7 +30,7 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="@../imagens/lbUsuario.png" />
+                  <Image url="@../imagens/usuario_100.jpg" />
                </source>
             </ImageInput>
          </effect>
